@@ -136,8 +136,8 @@ def favicon():
 def livestream():
     # global prev_bytes
 
-    with open("/tmp/log.txt", "a") as file:
-        file.write("="*20 + "\n")
+    #with open("/tmp/log.txt", "a") as file:
+    #   file.write("="*20 + "\n")
 
     # while True:
     with open("/tmp/current.jpg", "rb") as image:
