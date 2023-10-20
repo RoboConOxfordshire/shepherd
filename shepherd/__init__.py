@@ -134,20 +134,6 @@ def favicon():
 
 @app.route("/livestream")
 def livestream():
-    # global prev_bytes
-
-    with open("/tmp/log.txt", "a") as file:
-        file.write("="*20 + "\n")
-
-    # while True:
     with open("/tmp/current.jpg", "rb") as image:
         vid_bytes = image.read()
-    #     if vid_bytes == prev_bytes:
-    #         with open("/tmp/log.txt", "a") as file:
-    #             file.write(f"duplicate\n")
-    #         continue
-    #     prev_bytes = vid_bytes
-    #     with open("/tmp/log.txt", "a") as file:
-    #         file.write(f"{base64.b85encode(vid_bytes)}\n")
-    # return base64.b85encode(vid_bytes).decode()
     return base64.b85encode(vid_bytes).decode()
