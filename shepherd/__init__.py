@@ -136,4 +136,5 @@ def favicon():
 def livestream():
     with open("/tmp/current.jpg", "rb") as image:
         vid_bytes = image.read()
+
     return base64.b85encode(vid_bytes).decode()
