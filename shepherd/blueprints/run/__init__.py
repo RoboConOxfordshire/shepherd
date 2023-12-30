@@ -7,11 +7,13 @@ import errno
 from functools import partial
 import json
 import os
+import stat
 import subprocess
 import sys
 from tempfile import mktemp
 import threading
 import time
+from pathlib import Path
 
 from enum import Enum
 from flask import Blueprint, render_template, flash, redirect, url_for, request, current_app, session, send_file
@@ -76,7 +78,12 @@ def _start_user_code(app):
     output_file = open(OUTPUT_FILE_PATH, "w", 1)
     environment = dict(os.environ)
     environment["PYTHONPATH"] = ROBOT_LIB_LOCATION
-    # Start the user code.
+    
+    # configure permissions on files
+    parent_path = Path(app.config["SHEPHERD_USER_CODE_ENTRYPOINT_PATH"]).parent.absolute()
+    os.system(f"chmod -R 755 {parent_path}")
+
+    # start usercode
     user_code = subprocess.Popen(
         [
             # python -u /path/to/the_code.py
@@ -88,6 +95,9 @@ def _start_user_code(app):
         bufsize=1,  # Line-buffered
         close_fds="posix" in sys.builtin_module_names,  # Only if we're not on Windows
         env=environment,
+        user='usercode',
+        group='test',
+        extra_groups=["i2c", "video", "input"]
     )
     user_code_wait_thread = threading.Thread(target=_user_code_wait)
     user_code_wait_thread.daemon = True
