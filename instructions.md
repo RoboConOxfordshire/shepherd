@@ -22,3 +22,5 @@
 		cp upload-button.png upload.png
 		cp run-button.png shepherd-run.png
 		cp run-button.png run.png  
+	7. to view it on your computer use `npm run vuepress:dev`, and it should host the docs at `http://localhost:8080/docs/` and images should work.
+
