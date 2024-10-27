@@ -103,6 +103,9 @@ ENV/
 # sheep node_modules
 sheepsrc/node_modules
 
+manuallybuiltsheep
+manuallybuiltdocs
+
 # pycharm config
 .idea
 

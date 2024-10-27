@@ -1,6 +1,6 @@
 # Setting up the repositories and building the docs
 
-# Clone the repos
+## Clone the repos
 1. Clone Shepherd: 
 	git clone git@github.com:RoboConOxfordshire/shepherd.git
 
@@ -24,3 +24,12 @@
 		cp run-button.png run.png  
 	7. to view it on your computer use `npm run vuepress:dev`, and it should host the docs at `http://localhost:8080/docs/` and images should work.
 
+
+
+## To rebuild the sheep IDE:
+
+when building the docs you might have seen the app folder within sheep this contains the ide.
+First make sure that you're using the correct npm version: `nvm use 8.1.0`
+Build it by running `npm run build` in the sheep/ directory. This may take several minutes, and will seem to get "stuck" at points, if it takes more than 15 minutes then something's wrong.
+Then in the ../manuallybuiltsheep there should be some files
+Copy these files into the ~/shepherd/blueprints/staticroutes/editor/ directory
