@@ -86,7 +86,7 @@ if (not app.debug) or os.environ.get("WERKZEUG_RUN_MAIN"):
 
         img = Image.open(start_graphic)
         img = img.resize((1280, 720))
-        img.save("/tmp/current_capture.jpg")
+        img.save("/tmp/current.jpg")
 
 
     def _start(channel):
