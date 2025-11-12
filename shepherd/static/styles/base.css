@@ -1,3 +1,37 @@
+:root {
+  /* Color Palette */
+  --primary-color: #2c3e50;
+  --secondary-color: #34495e;
+  --accent-color: #2980b9;
+  --neutral-color-light: #ecf0f1;
+  --neutral-color-dark: #95a5a6;
+  --text-color: #2c3e50;
+  --text-color-light: #ffffff;
+  --success-color: #27ae60;
+  --error-color: #c0392b;
+  --warning-color: #f39c12;
+  --info-color: #3498db;
+
+  /* Typography */
+  --font-family-sans-serif: "Inter UI", "Roboto", "Calibri", sans-serif;
+  --font-family-serif: "Ubuntu", "Segoe UI", "Verdana", sans-serif;
+  --font-family-monospace: "Ubuntu Mono", "Inconsolata", "Consolas", monospace;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-sm: 0.875rem;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --line-height-base: 1.5;
+
+  /* Spacing */
+  --spacing-unit: 1rem;
+  --spacing-xs: calc(var(--spacing-unit) * 0.25);
+  --spacing-sm: calc(var(--spacing-unit) * 0.5);
+  --spacing-md: var(--spacing-unit);
+  --spacing-lg: calc(var(--spacing-unit) * 1.5);
+  --spacing-xl: calc(var(--spacing-unit) * 2);
+}
+
 @font-face {
   font-family: "Ubuntu";
   src: url("/static/fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype");
@@ -66,6 +100,87 @@
   font-weight: 900;
   src: url("/static/fonts/inter-ui/Inter-UI-BlackItalic.woff2") format("woff2"),
        url("/static/fonts/inter-ui/Inter-UI-BlackItalic.woff") format("woff");
+}
+
+html {
+  font-family: var(--font-family-sans-serif);
+  box-sizing: border-box;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+h1, h2, h3, h4, h5, h6, .header {
+  font-family: var(--font-family-serif);
+  font-weight: var(--font-weight-bold);
+}
+.header {
+  font-size: var(--font-size-lg);
+}
+pre, code {
+  font-family: var(--font-family-monospace);
+  background-color: var(--neutral-color-light);
+  padding: var(--spacing-sm);
+  border-radius: var(--spacing-xs);
+}
+a, u {
+  text-decoration-skip: ink;
+  -webkit-text-decoration-skip: ink;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+button, input, optgroup, select, textarea {
+  font-family: inherit; /* override Normalize.css */
+}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.flash {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border-radius: var(--spacing-xs);
+  color: var(--text-color-light);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.flash--message {
+  background-color: var(--info-color);
+}
+.flash--error {
+  background-color: var(--error-color);
+}
+.flash--debug {
+  background-color: var(--neutral-color-dark);
+}
+.flash--success {
+  background-color: var(--success-color);
+}
+.big {
+  font-size: 1.8em;
+}
+button.big {
+  font-size: 1.4em;
+  padding: 0.4em;
+}
+button {
+  background-color: var(--accent-color);
+  color: var(--text-color-light);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--spacing-xs);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+button:hover {
+  background-color: #2980b9;
+}
+onts/inter-ui/Inter-UI-BlackItalic.woff") format("woff");
 }
 
 html {
