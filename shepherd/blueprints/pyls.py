@@ -1,64 +1,51 @@
-"""Python Language Server used to implement autocompletion in sheep in the
-native enviroment on the robot
-
-For more infomation see:
-https://code.visualstudio.com/api/language-extensions/language-server-extension-guide
-
-Doc's of jsonrpc: https://json-rpc.readthedocs.io/en/latest/quickstart.html
-Doc's of pyls_jsonrpc: https://github.com/palantir/python-language-server
-
-TODO check that this is getting autocomplete for the robot libarry
-
-FIXME/TODO
-Crashes with the bellow upon the user closing the tab. This is expected behaviour
-but it would be nice to make the logs nicer
-INFO:root:Exiting pyls with the JSON object must be str, bytes or bytearray, not
-'NoneType'
-"""
-import logging
 import json
+import os
 import subprocess
-import threading
-import flask
+import sys
 
-from pyls_jsonrpc import streams
-from geventwebsocket import WebSocketError
+from flask import Blueprint, request
+from flask_sockets import Sockets
 
-blueprint = flask.Blueprint("pyls", __name__)
+blueprint = Blueprint("pyls", __name__)
+sockets = Sockets()
 
+# Path to the Pyright Language Server executable
+PYRIGHT_LS_PATH = os.path.join(sys.prefix, "bin", "pyright-langserver")
 
-@blueprint.route("/pyls")
-def pyls_socket(socket):
-    """Handle messages between the client and a `pyls` process"""
-    ls_process = subprocess.Popen(
-        ['pyls', '-v'],
+@sockets.route("/pyls")
+def pyls_socket(ws):
+    if not os.path.exists(PYRIGHT_LS_PATH):
+        ws.send(json.dumps({"error": "Pyright Language Server not found."}))
+        return
+
+    # Start the Pyright Language Server as a subprocess
+    # Use 'node' to execute the JavaScript language server
+    p = subprocess.Popen(
+        ["node", PYRIGHT_LS_PATH, "--stdio"],
         stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,  # Handle input/output as text
     )
 
-    server_interface = streams.JsonRpcStreamWriter(ls_process.stdin)
+    # Forward messages between the client and the language server
+    while not ws.closed:
+        message = ws.receive()
+        if message:
+            p.stdin.write(message + "\n")
+            p.stdin.flush()
+            response = p.stdout.readline()
+            if response:
+                ws.send(response)
+        else:
+            # If no message from client, check for output from LS
+            # This is a simple polling, a more robust solution would use select/selectors
+            try:
+                response = p.stdout.readline()
+                if response:
+                    ws.send(response)
+            except Exception:
+                pass
 
-    def process_message(message):
-        serialized_json = json.dumps(message)
-        socket.send(serialized_json)
-        logging.debug(serialized_json)
-
-    def server_data_to_client():
-        reader = streams.JsonRpcStreamReader(ls_process.stdout)
-        reader.listen(process_message)
-
-    thread = threading.Thread(target=server_data_to_client)
-    thread.daemon = True
-    thread.start()
-
-    try:
-        while not socket.closed:
-            message = json.loads(socket.receive())
-            logging.debug(message)
-            if not message is None:
-                server_interface.write(message)
-    except (TypeError, WebSocketError) as err:
-        # When the client exits these errors can be raised
-        logging.info("Exiting pyls because {}".format(err))
-    finally:
-        ls_process.kill()
+    p.terminate()
+    p.wait()

@@ -1,15 +1,12 @@
-# encoding: utf-8
-
-
-
 import errno
 import os
+import tempfile
 from pathlib import Path
 
 from flask import Flask, render_template, send_file, request, redirect, url_for
 from flask_sockets import Sockets
 from flask_cors import CORS
-import RPi.GPIO as GPIO
+# import RPi.GPIO as GPIO  # Commented out for development on non-Raspberry Pi machines
 from logging.handlers import SysLogHandler
 import logging
 import base64
@@ -20,8 +17,20 @@ from shepherd.blueprints import upload, run, pyls, editor, staticroutes
 START_BUTTON_PIN = 26  # This is a BCM pin number (BCM0 corresponds to phys27).
 
 syslogger = logging.getLogger()
-syslogger.addHandler(SysLogHandler('/dev/log'))
+# Try to add a syslog handler on systems that have /dev/log (typical Linux). On other
+# platforms (Windows, CI, dev machines) fallback to a StreamHandler so the app doesn't crash.
+try:
+    if os.path.exists('/dev/log'):
+        syslogger.addHandler(SysLogHandler('/dev/log'))
+    else:
+        # Fall back to console logging so developers can see output when /dev/log isn't present
+        if not syslogger.handlers:
+            syslogger.addHandler(logging.StreamHandler())
+except Exception:
+    if not syslogger.handlers:
+        syslogger.addHandler(logging.StreamHandler())
 
+sTMP = tempfile.gettempdir()
 app = Flask(__name__, template_folder="templates")
 sockets = Sockets(app)
 
@@ -47,8 +56,8 @@ except OSError as e:
 # Avoid running the user code twice.
 if (not app.debug) or os.environ.get("WERKZEUG_RUN_MAIN"):
     run.init(app)
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(START_BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    # GPIO.setmode(GPIO.BCM)
+    # GPIO.setup(START_BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     # Teamname should be set on a per brain basis before shipping
     # Its purpose is to allow the setting of specific graphics for help identifing teams in the arena.
@@ -57,36 +66,41 @@ if (not app.debug) or os.environ.get("WERKZEUG_RUN_MAIN"):
 
     game_control_path = Path('/media/ArenaUSB')
 
-    teamname_file = Path('/home/pi/teamname.txt')
-    if teamname_file.exists():
-        teamname_jpg = teamname_file.read_text().replace('\n', '') +'.jpg'
-    else:
-        teamname_jpg = 'none'
+    # teamname_file = Path('/home/pi/teamname.txt')
+    # if teamname_file.exists():
+    #     teamname_jpg = teamname_file.read_text().replace('\n', '') +'.jpg'
+    # else:
+    #     teamname_jpg = 'none'
 
-    # Pick a start imapge in order of preference :
-    #     1) We have a team corner image on the USB
-    #     2) The team have uploaded their own image to the robot
-    #     3) We have a generic corner image on the USB
-    #     4) The game image
-    start_graphic = game_control_path / teamname_jpg
-    if not start_graphic.exists():
-        # attempt to find the team specific corner graphic from the ArenaUSB
-        start_graphic = Path('robotsrc/team_logo.jpg')
-    if not start_graphic.exists():
-        # attempt to find the default corner graphic from ArenaUSB
-        start_graphic = game_control_path / 'Corner.jpg'
-    if not start_graphic.exists():
-        # finally look for a game specific logo
-        start_graphic = Path('/home/pi/game_logo.jpg')
-    if start_graphic.exists():
-        # if ANY of the above paths generate a useful image, copy it into the web "static" files like an animal who doesn't understand the word static
-        # if this all fails then the user will see the last image the camera took
-        static_graphic = Path('shepherd/static/image.jpg')
-        static_graphic.write_bytes(start_graphic.read_bytes())
+    # # Pick a start imapge in order of preference :
+    # #     1) We have a team corner image on the USB
+    # #     2) The team have uploaded their own image to the robot
+    # #     3) We have a generic corner image on the USB
+    # #     4) The game image
+    # start_graphic = game_control_path / teamname_jpg
+    # if not start_graphic.exists():
+    #     # attempt to find the team specific corner graphic from the ArenaUSB
+    #     start_graphic = Path('robotsrc/team_logo.jpg')
+    # if not start_graphic.exists():
+    #     # attempt to find the default corner graphic from ArenaUSB
+    #     start_graphic = game_control_path / 'Corner.jpg'
+    # if not start_graphic.exists():
+    #     # finally look for a game specific logo
+    #     start_graphic = Path('/home/pi/game_logo.jpg')
+    # if start_graphic.exists():
+    #     # if ANY of the above paths generate a useful image, copy it into the web "static" files like an animal who doesn't understand the word static
+    #     # if this all fails then the user will see the last image the camera took
+    #     static_graphic = Path('shepherd/static/image.jpg')
+    #     static_graphic.parent.mkdir(parents=True, exist_ok=True)
+    #     static_graphic.write_bytes(start_graphic.read_bytes())
 
-        img = Image.open(start_graphic)
-        img = img.resize((1280, 720))
-        img.save("/tmp/current.jpg")
+    #     img = Image.open(start_graphic)
+    #     img = img.resize((1280, 720))
+    #     # Use a cross-platform temp location rather than hard-coded /tmp
+    #     tmp_current = os.path.join(tempfile.gettempdir(), "current.jpg")
+    #     img.save(tmp_current)
+    #     # Store temp image location in app config for other routes
+    #     app.config["TEMP_IMAGE_PATH"] = tmp_current
 
 
     def _start(channel):
@@ -105,18 +119,19 @@ if (not app.debug) or os.environ.get("WERKZEUG_RUN_MAIN"):
         })
         with ctx:
             run.start()
-    GPIO.add_event_detect(START_BUTTON_PIN, GPIO.FALLING, callback=_start, bouncetime=3000)
+    # GPIO.add_event_detect(START_BUTTON_PIN, GPIO.FALLING, callback=_start, bouncetime=3000)
 
 app.register_blueprint(upload.blueprint, url_prefix="/upload")
 app.register_blueprint(run.blueprint, url_prefix="/run")
 app.register_blueprint(editor.blueprint, url_prefix="/files")
 app.register_blueprint(staticroutes.blueprint, url_prefix="/")
-sockets.register_blueprint(pyls.blueprint)
+# sockets.register_blueprint(pyls.blueprint)
 
 
 @app.route("/")
 def index():
-    return redirect("/editor")
+    # Redirect to the editor blueprint path. The editor blueprint is mounted at /files
+    return redirect("/files")
     # return render_template("index.html")
 
 
@@ -135,7 +150,19 @@ def favicon():
 
 @app.route("/livestream")
 def livestream():
-    with open("/tmp/current.jpg", "rb") as image:
-        vid_bytes = image.read()
+    # Serve the latest captured image as a base64-encoded data URL in JSON. This is
+    # easier for clients to embed directly into <img src="...">.
+    img_path = app.config.get("TEMP_IMAGE_PATH", os.path.join(tempfile.gettempdir(), "current.jpg"))
+    try:
+        with open(img_path, "rb") as image:
+            vid_bytes = image.read()
+    except Exception:
+        # No image available yet — return an empty payload
+        from flask import jsonify
 
-    return base64.b85encode(vid_bytes).decode()
+        return jsonify({"image": None}), 404
+
+    from flask import jsonify
+
+    img_b64 = base64.b64encode(vid_bytes).decode()
+    return jsonify({"image": f"data:image/jpeg;base64,{img_b64}"})

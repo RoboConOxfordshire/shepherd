@@ -1,6 +1,6 @@
 # This is the default Python implementation for the Blockly blocks
 # For information on how to customise this, please see the docs
-from __future__ import print_function
+
 import robot
 import time
 

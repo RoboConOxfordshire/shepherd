@@ -1,7 +1,3 @@
-# encoding: utf-8
-
-
-
 from datetime import datetime
 import errno
 import os
@@ -12,7 +8,7 @@ import zipfile
 from flask import Blueprint, render_template, flash, redirect, url_for, request, abort, current_app
 
 from shepherd.blueprints import run  # FIXME: this coupling is horrific
-import robot.reset as robot_reset  # This *should* be safe, if nasty.
+# from robot import reset as robot_reset  # This *should* be safe, if nasty.
 
 blueprint = Blueprint("upload", __name__, template_folder="templates")
 
@@ -31,7 +27,7 @@ def upload():
     if file.filename == "":
         flash("You didn't upload a file.", "error")
     else:
-        flash("Got a file with filename {}".format(file.filename), "debug")
+        flash(f"Got a file with filename {file.filename}", "debug")
         err = process_uploaded_file(file)
         if err:
             flash(err, "error")
@@ -45,7 +41,7 @@ def upload():
             # run._kill_motors()
             # run._kill_gpios()
 
-            robot_reset.reset()
+            # robot_reset.reset()
 
             # Make the world look like the Pi just booted
             # run._work_around_pic_servo_bug()

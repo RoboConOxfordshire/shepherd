@@ -1,0 +1,635 @@
+<unknown>:91: SyntaxWarning: invalid escape sequence '\#'
+<unknown>:138: SyntaxWarning: invalid escape sequence '\#'
+./app.py:1:1: FI10 __future__ import "division" missing
+./app.py:1:1: FI11 __future__ import "absolute_import" missing
+./app.py:1:1: FI13 __future__ import "print_function" missing
+./app.py:1:1: FI14 __future__ import "unicode_literals" missing
+./app.py:1:1: FI18 __future__ import "annotations" missing
+./helper.py:1:1: FI10 __future__ import "division" missing
+./helper.py:1:1: FI11 __future__ import "absolute_import" missing
+./helper.py:1:1: FI13 __future__ import "print_function" missing
+./helper.py:1:1: FI14 __future__ import "unicode_literals" missing
+./helper.py:1:1: FI18 __future__ import "annotations" missing
+./helper.py:7:11: F821 undefined name 'Error'
+./helper.py:9:1: E402 module level import not at top of file
+./helper.py:10:1: E402 module level import not at top of file
+./helper.py:11:1: E402 module level import not at top of file
+./helper.py:12:1: E402 module level import not at top of file
+./helper.py:13:1: E402 module level import not at top of file
+./helper.py:14:1: E402 module level import not at top of file
+./helper.py:15:1: E402 module level import not at top of file
+./helper.py:16:1: E402 module level import not at top of file
+./helper.py:17:1: E402 module level import not at top of file
+./helper.py:53:87: E261 at least two spaces before inline comment
+./helper.py:53:120: E501 line too long (120 > 119 characters)
+./helper.py:55:87: E261 at least two spaces before inline comment
+./helper.py:55:120: E501 line too long (120 > 119 characters)
+./helper.py:79:13: F841 local variable 'event' is assigned to but never used
+./helper.py:90:13: E722 do not use bare 'except'
+./helper.py:91:52: W605 invalid escape sequence '\#'
+./helper.py:124:13: F841 local variable 'event' is assigned to but never used
+./helper.py:128:43: E741 ambiguous variable name 'l'
+./helper.py:133:51: E741 ambiguous variable name 'l'
+./helper.py:137:13: E722 do not use bare 'except'
+./helper.py:138:52: W605 invalid escape sequence '\#'
+./helper.py:167:9: E722 do not use bare 'except'
+./manuallybuiltdocs/main.py:1:1: FI10 __future__ import "division" missing
+./manuallybuiltdocs/main.py:1:1: FI11 __future__ import "absolute_import" missing
+./manuallybuiltdocs/main.py:1:1: FI13 __future__ import "print_function" missing
+./manuallybuiltdocs/main.py:1:1: FI14 __future__ import "unicode_literals" missing
+./manuallybuiltdocs/main.py:1:1: FI18 __future__ import "annotations" missing
+./manuallybuiltdocs/simple.py:1:1: FI10 __future__ import "division" missing
+./manuallybuiltdocs/simple.py:1:1: FI11 __future__ import "absolute_import" missing
+./manuallybuiltdocs/simple.py:1:1: FI13 __future__ import "print_function" missing
+./manuallybuiltdocs/simple.py:1:1: FI14 __future__ import "unicode_literals" missing
+./manuallybuiltdocs/simple.py:1:1: FI18 __future__ import "annotations" missing
+./original_shepherd/app.py:1:1: FI10 __future__ import "division" missing
+./original_shepherd/app.py:1:1: FI11 __future__ import "absolute_import" missing
+./original_shepherd/app.py:1:1: FI13 __future__ import "print_function" missing
+./original_shepherd/app.py:1:1: FI14 __future__ import "unicode_literals" missing
+./original_shepherd/app.py:1:1: FI18 __future__ import "annotations" missing
+./original_shepherd/app.py:6:1: E303 too many blank lines (3)
+./original_shepherd/helper.py:2:165: E999 SyntaxError: invalid syntax
+./original_shepherd/manuallybuiltdocs/main.py:1:1: FI10 __future__ import "division" missing
+./original_shepherd/manuallybuiltdocs/main.py:1:1: FI11 __future__ import "absolute_import" missing
+./original_shepherd/manuallybuiltdocs/main.py:1:1: FI13 __future__ import "print_function" missing
+./original_shepherd/manuallybuiltdocs/main.py:1:1: FI14 __future__ import "unicode_literals" missing
+./original_shepherd/manuallybuiltdocs/main.py:1:1: FI18 __future__ import "annotations" missing
+./original_shepherd/manuallybuiltdocs/simple.py:1:1: FI10 __future__ import "division" missing
+./original_shepherd/manuallybuiltdocs/simple.py:1:1: FI11 __future__ import "absolute_import" missing
+./original_shepherd/manuallybuiltdocs/simple.py:1:1: FI13 __future__ import "print_function" missing
+./original_shepherd/manuallybuiltdocs/simple.py:1:1: FI14 __future__ import "unicode_literals" missing
+./original_shepherd/manuallybuiltdocs/simple.py:1:1: FI18 __future__ import "annotations" missing
+./original_shepherd/robotsrc/me.py:1:1: FI10 __future__ import "division" missing
+./original_shepherd/robotsrc/me.py:1:1: FI11 __future__ import "absolute_import" missing
+./original_shepherd/robotsrc/me.py:1:1: FI13 __future__ import "print_function" missing
+./original_shepherd/robotsrc/me.py:1:1: FI14 __future__ import "unicode_literals" missing
+./original_shepherd/robotsrc/me.py:1:1: FI18 __future__ import "annotations" missing
+./original_shepherd/robotsrc/nice_robot.py:1:179: E999 SyntaxError: invalid syntax
+./original_shepherd/setup.py:1:1: FI10 __future__ import "division" missing
+./original_shepherd/setup.py:1:1: FI11 __future__ import "absolute_import" missing
+./original_shepherd/setup.py:1:1: FI13 __future__ import "print_function" missing
+./original_shepherd/setup.py:1:1: FI14 __future__ import "unicode_literals" missing
+./original_shepherd/setup.py:1:1: FI18 __future__ import "annotations" missing
+./original_shepherd/shepherd/__init__.py:1:1: FI10 __future__ import "division" missing
+./original_shepherd/shepherd/__init__.py:1:1: FI11 __future__ import "absolute_import" missing
+./original_shepherd/shepherd/__init__.py:1:1: FI13 __future__ import "print_function" missing
+./original_shepherd/shepherd/__init__.py:1:1: FI14 __future__ import "unicode_literals" missing
+./original_shepherd/shepherd/__init__.py:1:1: FI18 __future__ import "annotations" missing
+./original_shepherd/shepherd/__init__.py:5:1: E303 too many blank lines (3)
+./original_shepherd/shepherd/__init__.py:9:1: F401 'flask.request' imported but unused
+./original_shepherd/shepherd/__init__.py:9:1: F401 'flask.url_for' imported but unused
+./original_shepherd/shepherd/__init__.py:37:120: E501 line too long (152 > 119 characters)
+./original_shepherd/shepherd/__init__.py:62:69: E225 missing whitespace around operator
+./original_shepherd/shepherd/__init__.py:82:120: E501 line too long (150 > 119 characters)
+./original_shepherd/shepherd/__init__.py:92:5: E303 too many blank lines (2)
+./original_shepherd/shepherd/blueprints/editor/__init__.py:1:1025: E999 SyntaxError: unmatched ')'
+./original_shepherd/shepherd/blueprints/pyls.py:1:164: E999 SyntaxError: invalid syntax
+./original_shepherd/shepherd/blueprints/run/__init__.py:1:1: FI10 __future__ import "division" missing
+./original_shepherd/shepherd/blueprints/run/__init__.py:1:1: FI11 __future__ import "absolute_import" missing
+./original_shepherd/shepherd/blueprints/run/__init__.py:1:1: FI13 __future__ import "print_function" missing
+./original_shepherd/shepherd/blueprints/run/__init__.py:1:1: FI14 __future__ import "unicode_literals" missing
+./original_shepherd/shepherd/blueprints/run/__init__.py:1:1: FI18 __future__ import "annotations" missing
+./original_shepherd/shepherd/blueprints/run/__init__.py:17:1: F401 'flask.current_app' imported but unused
+./original_shepherd/shepherd/blueprints/run/__init__.py:29:1: E402 module level import not at top of file
+./original_shepherd/shepherd/blueprints/run/__init__.py:67:1: E302 expected 2 blank lines, found 1
+./original_shepherd/shepherd/blueprints/run/__init__.py:68:5: F824 `global user_code` is unused: name is never assigned in scope
+./original_shepherd/shepherd/blueprints/run/__init__.py:74:1: E302 expected 2 blank lines, found 1
+./original_shepherd/shepherd/blueprints/run/__init__.py:96:1: E302 expected 2 blank lines, found 1
+./original_shepherd/shepherd/blueprints/run/__init__.py:121:5: F824 `global reap_time` is unused: name is never assigned in scope
+./original_shepherd/shepherd/blueprints/run/__init__.py:172:5: F824 `global disable_reaper` is unused: name is never assigned in scope
+./original_shepherd/shepherd/blueprints/run/__init__.py:172:5: F824 `global user_code` is unused: name is never assigned in scope
+./original_shepherd/shepherd/blueprints/run/__init__.py:183:120: E501 line too long (120 > 119 characters)
+./original_shepherd/shepherd/blueprints/run/__init__.py:214:5: F824 `global state` is unused: name is never assigned in scope
+./original_shepherd/shepherd/blueprints/run/__init__.py:214:5: F824 `global reaper_timer` is unused: name is never assigned in scope
+./original_shepherd/shepherd/blueprints/run/__init__.py:241:5: F824 `global user_code` is unused: name is never assigned in scope
+./original_shepherd/shepherd/blueprints/run/__init__.py:241:5: F824 `global output_file` is unused: name is never assigned in scope
+./original_shepherd/shepherd/blueprints/run/__init__.py:280:5: F824 `global user_code` is unused: name is never assigned in scope
+./original_shepherd/shepherd/blueprints/staticroutes/__init__.py:1:1: FI10 __future__ import "division" missing
+./original_shepherd/shepherd/blueprints/staticroutes/__init__.py:1:1: FI11 __future__ import "absolute_import" missing
+./original_shepherd/shepherd/blueprints/staticroutes/__init__.py:1:1: FI13 __future__ import "print_function" missing
+./original_shepherd/shepherd/blueprints/staticroutes/__init__.py:1:1: FI14 __future__ import "unicode_literals" missing
+./original_shepherd/shepherd/blueprints/staticroutes/__init__.py:1:1: FI18 __future__ import "annotations" missing
+./original_shepherd/shepherd/blueprints/staticroutes/__init__.py:21:1: E302 expected 2 blank lines, found 1
+./original_shepherd/shepherd/blueprints/staticroutes/__init__.py:23:51: E231 missing whitespace after ','
+./original_shepherd/shepherd/blueprints/staticroutes/__init__.py:23:61: E231 missing whitespace after ','
+./original_shepherd/shepherd/blueprints/staticroutes/__init__.py:25:1: E302 expected 2 blank lines, found 1
+./original_shepherd/shepherd/blueprints/staticroutes/docs/main.py:1:1: FI10 __future__ import "division" missing
+./original_shepherd/shepherd/blueprints/staticroutes/docs/main.py:1:1: FI11 __future__ import "absolute_import" missing
+./original_shepherd/shepherd/blueprints/staticroutes/docs/main.py:1:1: FI13 __future__ import "print_function" missing
+./original_shepherd/shepherd/blueprints/staticroutes/docs/main.py:1:1: FI14 __future__ import "unicode_literals" missing
+./original_shepherd/shepherd/blueprints/staticroutes/docs/main.py:1:1: FI18 __future__ import "annotations" missing
+./original_shepherd/shepherd/blueprints/staticroutes/docs/simple.py:1:1: FI10 __future__ import "division" missing
+./original_shepherd/shepherd/blueprints/staticroutes/docs/simple.py:1:1: FI11 __future__ import "absolute_import" missing
+./original_shepherd/shepherd/blueprints/staticroutes/docs/simple.py:1:1: FI13 __future__ import "print_function" missing
+./original_shepherd/shepherd/blueprints/staticroutes/docs/simple.py:1:1: FI14 __future__ import "unicode_literals" missing
+./original_shepherd/shepherd/blueprints/staticroutes/docs/simple.py:1:1: FI18 __future__ import "annotations" missing
+./original_shepherd/shepherd/blueprints/upload/__init__.py:1:302: E999 SyntaxError: invalid syntax
+./original_shepherd/shepherd/competition.py:1:1: FI10 __future__ import "division" missing
+./original_shepherd/shepherd/competition.py:1:1: FI11 __future__ import "absolute_import" missing
+./original_shepherd/shepherd/competition.py:1:1: FI13 __future__ import "print_function" missing
+./original_shepherd/shepherd/competition.py:1:1: FI14 __future__ import "unicode_literals" missing
+./original_shepherd/shepherd/competition.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/__init__.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/__init__.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/__init__.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/__init__.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/__init__.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/__init__.py:19:1: E402 module level import not at top of file
+./robot/robot/__init__.py:23:1: F401 'robot.log' imported but unused
+./robot/robot/__init__.py:23:1: E402 module level import not at top of file
+./robot/robot/__init__.py:25:1: E402 module level import not at top of file
+./robot/robot/__init__.py:26:1: E402 module level import not at top of file
+./robot/robot/__init__.py:27:1: E402 module level import not at top of file
+./robot/robot/__init__.py:28:1: E402 module level import not at top of file
+./robot/robot/__init__.py:43:1: W293 blank line contains whitespace
+./robot/robot/apriltags3.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/apriltags3.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/apriltags3.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/apriltags3.py:157:46: W504 line break after binary operator
+./robot/robot/apriltags3.py:182:15: E275 missing whitespace after keyword
+./robot/robot/apriltags3.py:182:36: W504 line break after binary operator
+./robot/robot/apriltags3.py:183:57: W504 line break after binary operator
+./robot/robot/apriltags3.py:184:49: W504 line break after binary operator
+./robot/robot/apriltags3.py:185:51: W504 line break after binary operator
+./robot/robot/apriltags3.py:186:67: W504 line break after binary operator
+./robot/robot/apriltags3.py:187:57: W504 line break after binary operator
+./robot/robot/apriltags3.py:188:49: W504 line break after binary operator
+./robot/robot/apriltags3.py:189:51: W504 line break after binary operator
+./robot/robot/apriltags3.py:190:49: W504 line break after binary operator
+./robot/robot/apriltags3.py:191:49: W504 line break after binary operator
+./robot/robot/apriltags3.py:192:53: W504 line break after binary operator
+./robot/robot/apriltags3.py:193:50: W504 line break after binary operator
+./robot/robot/apriltags3.py:194:58: W504 line break after binary operator
+./robot/robot/calibrate_camera.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/calibrate_camera.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/calibrate_camera.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/calibrate_camera.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/calibrate_camera.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/calibrate_camera.py:8:1: F401 'math' imported but unused
+./robot/robot/calibrate_camera.py:29:8: F632 use ==/!= to compare constant literals (str, bytes, int, float, tuple)
+./robot/robot/cytron.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/cytron.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/cytron.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/cytron.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/cytron.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/cytron.py:98:13: F841 local variable 'percentage' is assigned to but never used
+./robot/robot/game_config/__init__.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/game_config/__init__.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/game_config/__init__.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/game_config/__init__.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/game_config/__init__.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/game_config/markers.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/game_config/markers.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/game_config/markers.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/game_config/markers.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/game_config/markers.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/game_config/markers.py:8:83: W291 trailing whitespace
+./robot/robot/game_config/markers.py:9:105: W291 trailing whitespace
+./robot/robot/game_config/markers.py:10:107: W291 trailing whitespace
+./robot/robot/game_config/markers.py:22:100: W291 trailing whitespace
+./robot/robot/game_config/markers.py:27:1: E302 expected 2 blank lines, found 1
+./robot/robot/game_config/markers.py:27:30: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:35:1: E303 too many blank lines (3)
+./robot/robot/game_config/markers.py:35:19: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:36:33: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:37:32: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:38:37: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:39:24: E231 missing whitespace after ','
+./robot/robot/game_config/markers.py:39:28: E231 missing whitespace after ','
+./robot/robot/game_config/markers.py:39:32: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:40:34: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:60:43: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:62:68: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:65:30: E231 missing whitespace after ','
+./robot/robot/game_config/markers.py:65:34: E231 missing whitespace after ','
+./robot/robot/game_config/markers.py:65:38: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:68:14: W291 trailing whitespace
+./robot/robot/game_config/markers.py:69:29: E231 missing whitespace after ','
+./robot/robot/game_config/markers.py:69:33: E231 missing whitespace after ','
+./robot/robot/game_config/markers.py:69:39: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:74:33: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:83:31: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:91:27: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:93:78: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:93:120: E501 line too long (198 > 119 characters)
+./robot/robot/game_config/markers.py:97:86: W291 trailing whitespace
+./robot/robot/game_config/markers.py:98:85: W291 trailing whitespace
+./robot/robot/game_config/markers.py:109:94: W291 trailing whitespace
+./robot/robot/game_config/markers.py:126:57: E228 missing whitespace around modulo operator
+./robot/robot/game_config/markers.py:127:1: W293 blank line contains whitespace
+./robot/robot/game_config/markers.py:128:1: W293 blank line contains whitespace
+./robot/robot/game_config/markers.py:129:9: E303 too many blank lines (2)
+./robot/robot/game_config/markers.py:129:29: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:131:29: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:132:40: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:134:14: E261 at least two spaces before inline comment
+./robot/robot/game_config/markers.py:140:1: W391 blank line at end of file
+./robot/robot/game_config/startup_poems.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/game_config/startup_poems.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/game_config/startup_poems.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/game_config/startup_poems.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/game_config/startup_poems.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/game_config/startup_poems.py:3:1: E302 expected 2 blank lines, found 1
+./robot/robot/game_config/startup_poems.py:5:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:5:120: E501 line too long (181 > 119 characters)
+./robot/robot/game_config/startup_poems.py:6:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:6:120: E501 line too long (174 > 119 characters)
+./robot/robot/game_config/startup_poems.py:7:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:7:120: E501 line too long (143 > 119 characters)
+./robot/robot/game_config/startup_poems.py:8:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:8:120: E501 line too long (145 > 119 characters)
+./robot/robot/game_config/startup_poems.py:9:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:9:120: E501 line too long (175 > 119 characters)
+./robot/robot/game_config/startup_poems.py:10:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:10:120: E501 line too long (162 > 119 characters)
+./robot/robot/game_config/startup_poems.py:11:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:11:120: E501 line too long (160 > 119 characters)
+./robot/robot/game_config/startup_poems.py:12:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:12:120: E501 line too long (145 > 119 characters)
+./robot/robot/game_config/startup_poems.py:13:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:13:120: E501 line too long (165 > 119 characters)
+./robot/robot/game_config/startup_poems.py:14:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:14:120: E501 line too long (157 > 119 characters)
+./robot/robot/game_config/startup_poems.py:15:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:15:120: E501 line too long (171 > 119 characters)
+./robot/robot/game_config/startup_poems.py:16:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:16:120: E501 line too long (157 > 119 characters)
+./robot/robot/game_config/startup_poems.py:17:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:17:120: E501 line too long (187 > 119 characters)
+./robot/robot/game_config/startup_poems.py:18:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:18:120: E501 line too long (150 > 119 characters)
+./robot/robot/game_config/startup_poems.py:19:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:19:120: E501 line too long (143 > 119 characters)
+./robot/robot/game_config/startup_poems.py:20:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:20:120: E501 line too long (141 > 119 characters)
+./robot/robot/game_config/startup_poems.py:21:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:21:120: E501 line too long (151 > 119 characters)
+./robot/robot/game_config/startup_poems.py:22:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:22:120: E501 line too long (159 > 119 characters)
+./robot/robot/game_config/startup_poems.py:23:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:23:120: E501 line too long (142 > 119 characters)
+./robot/robot/game_config/startup_poems.py:24:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:24:120: E501 line too long (152 > 119 characters)
+./robot/robot/game_config/startup_poems.py:25:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:25:120: E501 line too long (137 > 119 characters)
+./robot/robot/game_config/startup_poems.py:26:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:26:120: E501 line too long (154 > 119 characters)
+./robot/robot/game_config/startup_poems.py:27:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:27:120: E501 line too long (145 > 119 characters)
+./robot/robot/game_config/startup_poems.py:28:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:28:120: E501 line too long (149 > 119 characters)
+./robot/robot/game_config/startup_poems.py:29:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:29:120: E501 line too long (142 > 119 characters)
+./robot/robot/game_config/startup_poems.py:30:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:30:120: E501 line too long (164 > 119 characters)
+./robot/robot/game_config/startup_poems.py:31:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:31:120: E501 line too long (131 > 119 characters)
+./robot/robot/game_config/startup_poems.py:32:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:32:120: E501 line too long (146 > 119 characters)
+./robot/robot/game_config/startup_poems.py:33:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:33:120: E501 line too long (172 > 119 characters)
+./robot/robot/game_config/startup_poems.py:34:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:34:120: E501 line too long (151 > 119 characters)
+./robot/robot/game_config/startup_poems.py:35:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:35:120: E501 line too long (152 > 119 characters)
+./robot/robot/game_config/startup_poems.py:36:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:36:120: E501 line too long (128 > 119 characters)
+./robot/robot/game_config/startup_poems.py:37:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:37:120: E501 line too long (146 > 119 characters)
+./robot/robot/game_config/startup_poems.py:38:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:38:120: E501 line too long (140 > 119 characters)
+./robot/robot/game_config/startup_poems.py:39:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:39:120: E501 line too long (166 > 119 characters)
+./robot/robot/game_config/startup_poems.py:40:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:40:120: E501 line too long (156 > 119 characters)
+./robot/robot/game_config/startup_poems.py:41:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:41:120: E501 line too long (148 > 119 characters)
+./robot/robot/game_config/startup_poems.py:42:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:42:120: E501 line too long (141 > 119 characters)
+./robot/robot/game_config/startup_poems.py:43:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:43:120: E501 line too long (158 > 119 characters)
+./robot/robot/game_config/startup_poems.py:44:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:44:120: E501 line too long (130 > 119 characters)
+./robot/robot/game_config/startup_poems.py:45:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:45:120: E501 line too long (153 > 119 characters)
+./robot/robot/game_config/startup_poems.py:46:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:46:120: E501 line too long (144 > 119 characters)
+./robot/robot/game_config/startup_poems.py:47:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:47:120: E501 line too long (141 > 119 characters)
+./robot/robot/game_config/startup_poems.py:48:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:48:120: E501 line too long (157 > 119 characters)
+./robot/robot/game_config/startup_poems.py:49:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:49:120: E501 line too long (152 > 119 characters)
+./robot/robot/game_config/startup_poems.py:50:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:50:120: E501 line too long (151 > 119 characters)
+./robot/robot/game_config/startup_poems.py:51:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:51:120: E501 line too long (126 > 119 characters)
+./robot/robot/game_config/startup_poems.py:52:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:52:120: E501 line too long (147 > 119 characters)
+./robot/robot/game_config/startup_poems.py:53:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:53:120: E501 line too long (142 > 119 characters)
+./robot/robot/game_config/startup_poems.py:54:5: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:54:120: E501 line too long (132 > 119 characters)
+./robot/robot/game_config/startup_poems.py:55:1: E122 continuation line missing indentation or outdented
+./robot/robot/game_config/startup_poems.py:60:76: W291 trailing whitespace
+./robot/robot/game_config/startup_poems.py:61:76: W291 trailing whitespace
+./robot/robot/game_config/startup_poems.py:65:27: E231 missing whitespace after ','
+./robot/robot/game_config/startup_poems.py:69:9: E722 do not use bare 'except'
+./robot/robot/game_config/startup_poems.py:71:33: W292 no newline at end of file
+./robot/robot/game_config/teams.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/game_config/teams.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/game_config/teams.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/game_config/teams.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/game_config/teams.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/game_config/teams.py:4:104: W291 trailing whitespace
+./robot/robot/game_config/teams.py:7:1: E302 expected 2 blank lines, found 0
+./robot/robot/game_config/teams.py:7:23: W291 trailing whitespace
+./robot/robot/game_config/teams.py:8:30: E261 at least two spaces before inline comment
+./robot/robot/game_config/teams.py:12:20: W291 trailing whitespace
+./robot/robot/game_config/teams.py:13:120: E501 line too long (150 > 119 characters)
+./robot/robot/game_config/teams.py:19:1: W391 blank line at end of file
+./robot/robot/greengiant.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/greengiant.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/greengiant.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/greengiant.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/greengiant.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/greengiant.py:19:26: W503 line break before binary operator
+./robot/robot/greengiant.py:46:1: E303 too many blank lines (5)
+./robot/robot/greengiant.py:46:1: E265 block comment should start with '# '
+./robot/robot/greengiant.py:55:1: E265 block comment should start with '# '
+./robot/robot/greengiant.py:57:1: E265 block comment should start with '# '
+./robot/robot/greengiant.py:64:1: E265 block comment should start with '# '
+./robot/robot/greengiant.py:68:1: E303 too many blank lines (3)
+./robot/robot/greengiant.py:86:120: E501 line too long (126 > 119 characters)
+./robot/robot/greengiant.py:173:1: E302 expected 2 blank lines, found 1
+./robot/robot/greengiant.py:186:14: E211 whitespace before '('
+./robot/robot/greengiant.py:190:27: E231 missing whitespace after ','
+./robot/robot/greengiant.py:194:88: W291 trailing whitespace
+./robot/robot/greengiant.py:207:88: W291 trailing whitespace
+./robot/robot/greengiant.py:214:8: E111 indentation is not a multiple of 4
+./robot/robot/greengiant.py:215:13: E117 over-indented (comment)
+./robot/robot/greengiant.py:216:13: E117 over-indented
+./robot/robot/greengiant.py:218:88: W291 trailing whitespace
+./robot/robot/greengiant.py:221:8: E111 indentation is not a multiple of 4
+./robot/robot/greengiant.py:222:13: E117 over-indented
+./robot/robot/greengiant.py:225:8: E111 indentation is not a multiple of 4
+./robot/robot/greengiant.py:226:13: E117 over-indented (comment)
+./robot/robot/greengiant.py:227:13: E117 over-indented (comment)
+./robot/robot/greengiant.py:228:13: E117 over-indented
+./robot/robot/greengiant.py:232:5: E303 too many blank lines (3)
+./robot/robot/greengiant.py:240:15: E271 multiple spaces after keyword
+./robot/robot/greengiant.py:243:120: E501 line too long (127 > 119 characters)
+./robot/robot/greengiant.py:259:65: E261 at least two spaces before inline comment
+./robot/robot/greengiant.py:259:66: E262 inline comment should start with '# '
+./robot/robot/greengiant.py:291:72: W291 trailing whitespace
+./robot/robot/greengiant.py:292:28: E703 statement ends with a semicolon
+./robot/robot/greengiant.py:297:5: E303 too many blank lines (2)
+./robot/robot/greengiant.py:311:27: F541 f-string is missing placeholders
+./robot/robot/greengiant.py:321:13: E265 block comment should start with '# '
+./robot/robot/greengiant.py:323:27: F541 f-string is missing placeholders
+./robot/robot/greengiant.py:338:27: F541 f-string is missing placeholders
+./robot/robot/greengiant.py:355:27: F541 f-string is missing placeholders
+./robot/robot/greengiant.py:367:16: E111 indentation is not a multiple of 4
+./robot/robot/greengiant.py:369:16: E111 indentation is not a multiple of 4
+./robot/robot/greengiant.py:370:5: E301 expected 1 blank line, found 0
+./robot/robot/greengiant.py:382:120: E501 line too long (120 > 119 characters)
+./robot/robot/greengiant.py:386:27: F541 f-string is missing placeholders
+./robot/robot/greengiant.py:388:5: E265 block comment should start with '# '
+./robot/robot/greengiant.py:405:27: F541 f-string is missing placeholders
+./robot/robot/greengiant.py:419:1: E303 too many blank lines (3)
+./robot/robot/greengiant.py:431:103: W291 trailing whitespace
+./robot/robot/greengiant.py:433:23: E128 continuation line under-indented for visual indent
+./robot/robot/greengiant.py:435:100: E225 missing whitespace around operator
+./robot/robot/greengiant.py:435:102: W291 trailing whitespace
+./robot/robot/greengiant.py:436:35: E203 whitespace before ','
+./robot/robot/greengiant.py:437:23: E128 continuation line under-indented for visual indent
+./robot/robot/greengiant.py:440:86: W291 trailing whitespace
+./robot/robot/greengiant.py:441:61: E202 whitespace before ')'
+./robot/robot/greengiant.py:442:23: E128 continuation line under-indented for visual indent
+./robot/robot/greengiant.py:444:31: F541 f-string is missing placeholders
+./robot/robot/greengiant.py:447:30: E114 indentation is not a multiple of 4 (comment)
+./robot/robot/greengiant.py:447:30: E116 unexpected indentation (comment)
+./robot/robot/greengiant.py:448:30: E114 indentation is not a multiple of 4 (comment)
+./robot/robot/greengiant.py:448:30: E116 unexpected indentation (comment)
+./robot/robot/greengiant.py:474:1: E305 expected 2 blank lines after class or function definition, found 0
+./robot/robot/greengiant.py:526:1: E302 expected 2 blank lines, found 1
+./robot/robot/greengiant.py:532:18: E225 missing whitespace around operator
+./robot/robot/greengiant.py:544:70: E261 at least two spaces before inline comment
+./robot/robot/greengiant.py:550:5: E303 too many blank lines (2)
+./robot/robot/greengiant.py:552:27: E231 missing whitespace after ','
+./robot/robot/greengiant.py:555:58: F821 undefined name '_GG_MOTOR_A_MAG'
+./robot/robot/greengiant.py:562:27: E231 missing whitespace after ','
+./robot/robot/greengiant.py:591:25: E261 at least two spaces before inline comment
+./robot/robot/greengiant.py:626:1: W391 blank line at end of file
+./robot/robot/log.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/log.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/log.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/log.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/log.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/reset.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/reset.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/reset.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/reset.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/reset.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/reset.py:26:34: F821 undefined name 'self'
+./robot/robot/reset.py:27:34: F821 undefined name 'self'
+./robot/robot/reset.py:36:5: E265 block comment should start with '# '
+./robot/robot/vision.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/vision.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/vision.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/vision.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/vision.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/vision.py:15:1: F401 'datetime.datetime' imported but unused
+./robot/robot/vision.py:16:1: F401 'typing.NamedTuple' imported but unused
+./robot/robot/vision.py:16:1: F401 'typing.Any' imported but unused
+./robot/robot/vision.py:114:120: E501 line too long (209 > 119 characters)
+./robot/robot/vision.py:127:16: E241 multiple spaces after ':'
+./robot/robot/vision.py:179:16: E225 missing whitespace around operator
+./robot/robot/vision.py:182:16: E225 missing whitespace around operator
+./robot/robot/vision.py:216:1: W293 blank line contains whitespace
+./robot/robot/vision.py:235:26: E711 comparison to None should be 'if cond is None:'
+./robot/robot/vision.py:240:12: E114 indentation is not a multiple of 4 (comment)
+./robot/robot/vision.py:240:32: W291 trailing whitespace
+./robot/robot/vision.py:241:12: E114 indentation is not a multiple of 4 (comment)
+./robot/robot/vision.py:241:120: E501 line too long (132 > 119 characters)
+./robot/robot/vision.py:242:12: E111 indentation is not a multiple of 4
+./robot/robot/vision.py:243:31: E128 continuation line under-indented for visual indent
+./robot/robot/vision.py:244:31: E128 continuation line under-indented for visual indent
+./robot/robot/vision.py:250:26: E711 comparison to None should be 'if cond is None:'
+./robot/robot/vision.py:255:12: E111 indentation is not a multiple of 4
+./robot/robot/vision.py:255:17: E211 whitespace before '('
+./robot/robot/vision.py:256:1: W293 blank line contains whitespace
+./robot/robot/vision.py:268:69: E128 continuation line under-indented for visual indent
+./robot/robot/vision.py:275:120: E501 line too long (189 > 119 characters)
+./robot/robot/vision.py:282:120: E501 line too long (122 > 119 characters)
+./robot/robot/vision.py:284:25: F841 local variable 'e' is assigned to but never used
+./robot/robot/vision.py:297:9: E265 block comment should start with '# '
+./robot/robot/vision.py:341:1: E302 expected 2 blank lines, found 1
+./robot/robot/vision.py:356:1: E302 expected 2 blank lines, found 1
+./robot/robot/vision.py:503:13: F841 local variable 'marker_code' is assigned to but never used
+./robot/robot/vision.py:507:31: E128 continuation line under-indented for visual indent
+./robot/robot/vision.py:508:31: E128 continuation line under-indented for visual indent
+./robot/robot/vision.py:520:29: E127 continuation line over-indented for visual indent
+./robot/robot/vision.py:521:29: E127 continuation line over-indented for visual indent
+./robot/robot/vision.py:522:29: E127 continuation line over-indented for visual indent
+./robot/robot/vision.py:523:29: E127 continuation line over-indented for visual indent
+./robot/robot/vision.py:577:9: F841 local variable 's' is assigned to but never used
+./robot/robot/vision.py:654:41: W503 line break before binary operator
+./robot/robot/vision.py:654:41: E127 continuation line over-indented for visual indent
+./robot/robot/vision.py:657:41: W503 line break before binary operator
+./robot/robot/vision.py:657:41: E127 continuation line over-indented for visual indent
+./robot/robot/wrapper.py:1:1: FI10 __future__ import "division" missing
+./robot/robot/wrapper.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/robot/wrapper.py:1:1: FI13 __future__ import "print_function" missing
+./robot/robot/wrapper.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/robot/wrapper.py:1:1: FI18 __future__ import "annotations" missing
+./robot/robot/wrapper.py:15:1: F401 'typing' imported but unused
+./robot/robot/wrapper.py:17:1: F401 'datetime.datetime' imported but unused
+./robot/robot/wrapper.py:22:1: F401 'robot.greengiant.OUTPUT' imported but unused
+./robot/robot/wrapper.py:22:1: F401 'robot.greengiant.TIMER' imported but unused
+./robot/robot/wrapper.py:22:120: E501 line too long (194 > 119 characters)
+./robot/robot/wrapper.py:25:1: F401 'robot.game_config.MARKER_TYPE' imported but unused
+./robot/robot/wrapper.py:69:34: E251 unexpected spaces around keyword / parameter equals
+./robot/robot/wrapper.py:69:36: E251 unexpected spaces around keyword / parameter equals
+./robot/robot/wrapper.py:70:33: E251 unexpected spaces around keyword / parameter equals
+./robot/robot/wrapper.py:70:35: E251 unexpected spaces around keyword / parameter equals
+./robot/robot/wrapper.py:106:28: E128 continuation line under-indented for visual indent
+./robot/robot/wrapper.py:107:28: E128 continuation line under-indented for visual indent
+./robot/robot/wrapper.py:126:120: E501 line too long (131 > 119 characters)
+./robot/robot/wrapper.py:128:16: E111 indentation is not a multiple of 4
+./robot/robot/wrapper.py:129:22: E221 multiple spaces before operator
+./robot/robot/wrapper.py:129:120: E501 line too long (129 > 119 characters)
+./robot/robot/wrapper.py:132:13: E266 too many leading '#' for block comment
+./robot/robot/wrapper.py:133:13: E266 too many leading '#' for block comment
+./robot/robot/wrapper.py:140:82: E241 multiple spaces after ','
+./robot/robot/wrapper.py:140:97: E241 multiple spaces after ','
+./robot/robot/wrapper.py:140:120: E501 line too long (126 > 119 characters)
+./robot/robot/wrapper.py:141:22: E221 multiple spaces before operator
+./robot/robot/wrapper.py:141:113: E203 whitespace before ','
+./robot/robot/wrapper.py:141:120: E501 line too long (120 > 119 characters)
+./robot/robot/wrapper.py:168:33: E222 multiple spaces after operator
+./robot/robot/wrapper.py:177:43: E231 missing whitespace after ','
+./robot/robot/wrapper.py:181:9: E265 block comment should start with '# '
+./robot/robot/wrapper.py:181:82: W291 trailing whitespace
+./robot/robot/wrapper.py:185:9: E265 block comment should start with '# '
+./robot/robot/wrapper.py:235:86: W291 trailing whitespace
+./robot/robot/wrapper.py:341:8: E111 indentation is not a multiple of 4
+./robot/robot/wrapper.py:343:53: E225 missing whitespace around operator
+./robot/robot/wrapper.py:359:1: W391 blank line at end of file
+./robot/setup.py:1:1: FI10 __future__ import "division" missing
+./robot/setup.py:1:1: FI11 __future__ import "absolute_import" missing
+./robot/setup.py:1:1: FI13 __future__ import "print_function" missing
+./robot/setup.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robot/setup.py:1:1: FI18 __future__ import "annotations" missing
+./robotsrc/me.py:1:1: FI10 __future__ import "division" missing
+./robotsrc/me.py:1:1: FI11 __future__ import "absolute_import" missing
+./robotsrc/me.py:1:1: FI13 __future__ import "print_function" missing
+./robotsrc/me.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robotsrc/me.py:1:1: FI18 __future__ import "annotations" missing
+./robotsrc/nice_robot.py:1:1: FI10 __future__ import "division" missing
+./robotsrc/nice_robot.py:1:1: FI11 __future__ import "absolute_import" missing
+./robotsrc/nice_robot.py:1:1: FI14 __future__ import "unicode_literals" missing
+./robotsrc/nice_robot.py:1:1: FI18 __future__ import "annotations" missing
+./robotsrc/nice_robot.py:16:1: E302 expected 2 blank lines, found 1
+./robotsrc/nice_robot.py:53:20: E225 missing whitespace around operator
+./robotsrc/nice_robot.py:61:1: E302 expected 2 blank lines, found 1
+./robotsrc/nice_robot.py:74:20: E225 missing whitespace around operator
+./robotsrc/nice_robot.py:79:1: W391 blank line at end of file
+./setup.py:1:1: FI10 __future__ import "division" missing
+./setup.py:1:1: FI11 __future__ import "absolute_import" missing
+./setup.py:1:1: FI13 __future__ import "print_function" missing
+./setup.py:1:1: FI14 __future__ import "unicode_literals" missing
+./setup.py:1:1: FI18 __future__ import "annotations" missing
+./shepherd/__init__.py:1:1: FI10 __future__ import "division" missing
+./shepherd/__init__.py:1:1: FI11 __future__ import "absolute_import" missing
+./shepherd/__init__.py:1:1: FI13 __future__ import "print_function" missing
+./shepherd/__init__.py:1:1: FI14 __future__ import "unicode_literals" missing
+./shepherd/__init__.py:1:1: FI18 __future__ import "annotations" missing
+./shepherd/__init__.py:6:1: F401 'flask.request' imported but unused
+./shepherd/__init__.py:6:1: F401 'flask.url_for' imported but unused
+./shepherd/__init__.py:13:1: F401 'PIL.Image' imported but unused
+./shepherd/__init__.py:15:1: F401 'shepherd.blueprints.pyls' imported but unused
+./shepherd/__init__.py:46:120: E501 line too long (152 > 119 characters)
+./shepherd/__init__.py:91:120: E501 line too long (152 > 119 characters)
+./shepherd/__init__.py:106:5: E303 too many blank lines (2)
+./shepherd/blueprints/editor/__init__.py:1:1: FI10 __future__ import "division" missing
+./shepherd/blueprints/editor/__init__.py:1:1: FI11 __future__ import "absolute_import" missing
+./shepherd/blueprints/editor/__init__.py:1:1: FI13 __future__ import "print_function" missing
+./shepherd/blueprints/editor/__init__.py:1:1: FI14 __future__ import "unicode_literals" missing
+./shepherd/blueprints/editor/__init__.py:1:1: FI18 __future__ import "annotations" missing
+./shepherd/blueprints/editor/__init__.py:23:69: W504 line break after binary operator
+./shepherd/blueprints/editor/__init__.py:24:86: W504 line break after binary operator
+./shepherd/blueprints/editor/__init__.py:37:9: E722 do not use bare 'except'
+./shepherd/blueprints/editor/__init__.py:73:62: W292 no newline at end of file
+./shepherd/blueprints/pyls.py:1:1: FI10 __future__ import "division" missing
+./shepherd/blueprints/pyls.py:1:1: FI11 __future__ import "absolute_import" missing
+./shepherd/blueprints/pyls.py:1:1: FI13 __future__ import "print_function" missing
+./shepherd/blueprints/pyls.py:1:1: FI14 __future__ import "unicode_literals" missing
+./shepherd/blueprints/pyls.py:1:1: FI18 __future__ import "annotations" missing
+./shepherd/blueprints/pyls.py:6:1: F401 'flask.request' imported but unused
+./shepherd/blueprints/pyls.py:15:1: E302 expected 2 blank lines, found 1
+./shepherd/blueprints/pyls.py:51:13: W292 no newline at end of file
+./shepherd/blueprints/run/__init__.py:1:1: FI10 __future__ import "division" missing
+./shepherd/blueprints/run/__init__.py:1:1: FI11 __future__ import "absolute_import" missing
+./shepherd/blueprints/run/__init__.py:1:1: FI13 __future__ import "print_function" missing
+./shepherd/blueprints/run/__init__.py:1:1: FI14 __future__ import "unicode_literals" missing
+./shepherd/blueprints/run/__init__.py:1:1: FI18 __future__ import "annotations" missing
+./shepherd/blueprints/run/__init__.py:4:1: F401 'functools.partial' imported but unused
+./shepherd/blueprints/run/__init__.py:5:1: F401 'json' imported but unused
+./shepherd/blueprints/run/__init__.py:15:1: F401 'flask.current_app' imported but unused
+./shepherd/blueprints/run/__init__.py:65:1: E302 expected 2 blank lines, found 1
+./shepherd/blueprints/run/__init__.py:66:5: F824 `global user_code` is unused: name is never assigned in scope
+./shepherd/blueprints/run/__init__.py:72:1: E302 expected 2 blank lines, found 1
+./shepherd/blueprints/run/__init__.py:93:1: E302 expected 2 blank lines, found 1
+./shepherd/blueprints/run/__init__.py:117:5: F824 `global reap_time` is unused: name is never assigned in scope
+./shepherd/blueprints/run/__init__.py:168:5: F824 `global disable_reaper` is unused: name is never assigned in scope
+./shepherd/blueprints/run/__init__.py:168:5: F824 `global user_code` is unused: name is never assigned in scope
+./shepherd/blueprints/run/__init__.py:179:120: E501 line too long (122 > 119 characters)
+./shepherd/blueprints/run/__init__.py:210:5: F824 `global state` is unused: name is never assigned in scope
+./shepherd/blueprints/run/__init__.py:210:5: F824 `global reaper_timer` is unused: name is never assigned in scope
+./shepherd/blueprints/run/__init__.py:237:5: F824 `global user_code` is unused: name is never assigned in scope
+./shepherd/blueprints/run/__init__.py:237:5: F824 `global output_file` is unused: name is never assigned in scope
+./shepherd/blueprints/run/__init__.py:276:5: F824 `global user_code` is unused: name is never assigned in scope
+./shepherd/blueprints/staticroutes/__init__.py:1:1: FI10 __future__ import "division" missing
+./shepherd/blueprints/staticroutes/__init__.py:1:1: FI11 __future__ import "absolute_import" missing
+./shepherd/blueprints/staticroutes/__init__.py:1:1: FI13 __future__ import "print_function" missing
+./shepherd/blueprints/staticroutes/__init__.py:1:1: FI14 __future__ import "unicode_literals" missing
+./shepherd/blueprints/staticroutes/__init__.py:1:1: FI18 __future__ import "annotations" missing
+./shepherd/blueprints/staticroutes/__init__.py:21:1: E302 expected 2 blank lines, found 1
+./shepherd/blueprints/staticroutes/__init__.py:23:51: E231 missing whitespace after ','
+./shepherd/blueprints/staticroutes/__init__.py:23:61: E231 missing whitespace after ','
+./shepherd/blueprints/staticroutes/__init__.py:25:1: E302 expected 2 blank lines, found 1
+./shepherd/blueprints/staticroutes/docs/main.py:1:1: FI10 __future__ import "division" missing
+./shepherd/blueprints/staticroutes/docs/main.py:1:1: FI11 __future__ import "absolute_import" missing
+./shepherd/blueprints/staticroutes/docs/main.py:1:1: FI13 __future__ import "print_function" missing
+./shepherd/blueprints/staticroutes/docs/main.py:1:1: FI14 __future__ import "unicode_literals" missing
+./shepherd/blueprints/staticroutes/docs/main.py:1:1: FI18 __future__ import "annotations" missing
+./shepherd/blueprints/staticroutes/docs/simple.py:1:1: FI10 __future__ import "division" missing
+./shepherd/blueprints/staticroutes/docs/simple.py:1:1: FI11 __future__ import "absolute_import" missing
+./shepherd/blueprints/staticroutes/docs/simple.py:1:1: FI13 __future__ import "print_function" missing
+./shepherd/blueprints/staticroutes/docs/simple.py:1:1: FI14 __future__ import "unicode_literals" missing
+./shepherd/blueprints/staticroutes/docs/simple.py:1:1: FI18 __future__ import "annotations" missing
+./shepherd/blueprints/upload/__init__.py:1:1: FI10 __future__ import "division" missing
+./shepherd/blueprints/upload/__init__.py:1:1: FI11 __future__ import "absolute_import" missing
+./shepherd/blueprints/upload/__init__.py:1:1: FI13 __future__ import "print_function" missing
+./shepherd/blueprints/upload/__init__.py:1:1: FI14 __future__ import "unicode_literals" missing
+./shepherd/blueprints/upload/__init__.py:1:1: FI18 __future__ import "annotations" missing
+./shepherd/blueprints/upload/__init__.py:1:1: F401 'datetime.datetime' imported but unused
+./shepherd/blueprints/upload/__init__.py:71:44: W291 trailing whitespace
+./shepherd/blueprints/upload/__init__.py:81:120: E501 line too long (125 > 119 characters)
+./shepherd/blueprints/upload/__init__.py:86:93: W292 no newline at end of file
+./shepherd/competition.py:1:1: FI10 __future__ import "division" missing
+./shepherd/competition.py:1:1: FI11 __future__ import "absolute_import" missing
+./shepherd/competition.py:1:1: FI13 __future__ import "print_function" missing
+./shepherd/competition.py:1:1: FI14 __future__ import "unicode_literals" missing
+./shepherd/competition.py:1:1: FI18 __future__ import "annotations" missing
+./test_init.py:1:1: FI10 __future__ import "division" missing
+./test_init.py:1:1: FI11 __future__ import "absolute_import" missing
+./test_init.py:1:1: FI13 __future__ import "print_function" missing
+./test_init.py:1:1: FI14 __future__ import "unicode_literals" missing
+./test_init.py:1:1: FI18 __future__ import "annotations" missing
+./test_init.py:15:1: W293 blank line contains whitespace
+./test_init.py:28:1: W293 blank line contains whitespace
+./test_init.py:36:1: W293 blank line contains whitespace
+./test_init.py:39:1: W293 blank line contains whitespace

@@ -1,6 +1,3 @@
-# encoding: utf-8
-
-
 import atexit
 from datetime import datetime, timedelta
 import errno
@@ -12,6 +9,7 @@ import sys
 from tempfile import mktemp
 import threading
 import time
+import tempfile
 
 from enum import Enum
 from flask import Blueprint, render_template, flash, redirect, url_for, request, current_app, session, send_file
@@ -21,18 +19,18 @@ from shepherd.competition import ROUND_LENGTH
 
 # This *should* be safe, if nasty
 # Would be nicer to use classmethods
-ROBOT_LIB_LOCATION = "/home/pi/robot"
-if not os.path.exists(ROBOT_LIB_LOCATION):
-    raise ImportError(f"Could not find robot lib at {ROBOT_LIB_LOCATION}")
+# ROBOT_LIB_LOCATION = "/home/pi/robot"
+# if not os.path.exists(ROBOT_LIB_LOCATION):
+#     raise ImportError(f"Could not find robot lib at {ROBOT_LIB_LOCATION}")
 
-sys.path.insert(0, ROBOT_LIB_LOCATION)
-import robot.reset as robot_reset
+# sys.path.insert(0, ROBOT_LIB_LOCATION)
+# import robot.reset as robot_reset
 
 
 blueprint = Blueprint("run", __name__, template_folder="templates")
 
 REAP_GRACE_TIME = 5  # Seconds before user code is forcefully killed
-OUTPUT_FILE_PATH = "/media/RobotUSB/logs.txt"
+OUTPUT_FILE_PATH = tempfile.mktemp(prefix="shepherd-log-", suffix=".txt")
 
 
 # Since we can't access app.debug in a blueprint, this will be run
@@ -40,7 +38,7 @@ OUTPUT_FILE_PATH = "/media/RobotUSB/logs.txt"
 def init(app):
     # Factored into separate functions so we can call them separately in
     # `blueprints.upload` (tight coupling ftw!!1!)
-    robot_reset.reset()
+    # robot_reset.reset()
     _reset_state()
     _start_user_code(app)
     _set_reaper_at_exit()
@@ -53,8 +51,8 @@ def _reset_state():
     # tempfile.mktemp is deprecated, but there's no possibility of a race --
     # os.mkfifo raises if its path already exists.
     USER_FIFO_PATH = mktemp(prefix="shepherd-fifo-")
-    os.mkfifo(USER_FIFO_PATH)
-    atexit.register(partial(os.remove, USER_FIFO_PATH))
+    # os.mkfifo(USER_FIFO_PATH)
+    # atexit.register(partial(os.remove, USER_FIFO_PATH))
     state = State.ready  # The state of the user code.
     zone = None  # The robot's home zone, an integer from 0 to 3.
     mode = None  # The robot's mode (development or competition), used for marker recognition.
@@ -75,7 +73,7 @@ def _start_user_code(app):
     global user_code, output_file
     output_file = open(OUTPUT_FILE_PATH, "w", 1)
     environment = dict(os.environ)
-    environment["PYTHONPATH"] = ROBOT_LIB_LOCATION
+    # environment["PYTHONPATH"] = ROBOT_LIB_LOCATION
     # Start the user code.
     user_code = subprocess.Popen(
         [
@@ -86,7 +84,6 @@ def _start_user_code(app):
         ],
         stdout=output_file, stderr=subprocess.STDOUT,
         bufsize=1,  # Line-buffered
-        close_fds="posix" in sys.builtin_module_names,  # Only if we're not on Windows
         env=environment,
     )
     user_code_wait_thread = threading.Thread(target=_user_code_wait)
@@ -110,7 +107,6 @@ class Mode(Enum):  # Names are important -- they let us get a Mode from the subm
     competition = "comp"
 
 
-@blueprint.before_app_first_request
 @blueprint.route("/reset", methods=["POST"])
 def reset():
     # TODO
@@ -179,18 +175,18 @@ def start():
             reap(reason="code is already dead")
             flash("Your code seems to have crashed, not starting it.", "error")
         else:
-            print("opening fifo")
-            # FIXME: should be in own thread so that if the code just takes a long time to load shepherd still functions
-            with open(USER_FIFO_PATH, "w") as f:
-                print("dumping json")
-                json.dump(
-                    {
-                        "mode": mode.value,
-                        "zone": int(zone),
-                        "arena": "A",
-                    }, f
-                )
-                print("json dumped")
+            # print("opening fifo")
+            # # FIXME: should be in own thread so that if the code just takes a long time to load shepherd still functions
+            # with open(USER_FIFO_PATH, "w") as f:
+            #     print("dumping json")
+            #     json.dump(
+            #         {
+            #             "mode": mode.value,
+            #             "zone": int(zone),
+            #             "arena": "A",
+            #         }, f
+            #     )
+            #     print("json dumped")
             if mode == Mode.competition:
                 reaper_timer = threading.Timer(ROUND_LENGTH, round_end)
                 # If we get told to exit, there's no point waiting around for the round to finish.
@@ -232,7 +228,7 @@ def round_end():
     reap(reason="end of round")
     # _kill_motors()
     # _set_servos(0)
-    robot_reset.reset()
+    # robot_reset.reset()
     time.sleep(0.5)
     # _kill_gpios()
 
@@ -242,9 +238,9 @@ def reap(reason=None):
     if reason is None:
         print("Reaping user code")
     else:
-        print("Reaping user code ({})".format(reason))
+        print(("Reaping user code ({})".format(reason)))
     if state != State.running:
-        print("Warning: told to stop code, but state is {}, not State.running!".format(state))
+        print(("Warning: told to stop code, but state is {}, not State.running!".format(state)))
     try:
         user_code.terminate()
     except OSError as e:
@@ -260,7 +256,7 @@ def reap(reason=None):
             user_code.communicate()
         except Exception as e:
             print("death: Caught an error while killing user code, sod Python's I/O handling...")
-            print("death: The error was: {}: {}".format(type(e), e))
+            print(("death: The error was: {}: {}".format(type(e), e)))
         butcher_thread.cancel()
     if output_file is not None:
         try:
@@ -271,7 +267,7 @@ def reap(reason=None):
             output_file.close()
         except Exception as e:
             print("death: Caught an error while closing user code's output.")
-            print("death: The error was: {}: {}".format(type(e).__name__, e))
+            print(("death: The error was: {}: {}".format(type(e).__name__, e)))
     state = State.post_run
     print("Done reaping user code")
 

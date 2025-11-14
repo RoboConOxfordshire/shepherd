@@ -1,19 +1,67 @@
-{% extends "page.html" %}
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Shepherd - Home</title>
+{% endblock %}
+
 {% block body %}
-{{ super() }}
+    <div class="container col-xxl-8 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="{{ url_for('static', filename='images/shepherd.png') }}" class="d-block mx-lg-auto img-fluid" alt="Shepherd logo" width="700" height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">Welcome to Shepherd</h1>
+                <p class="lead">The easy way to manage and control your robot's code. Get started by editing your code, running it, or exploring the documentation.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <a href="/files" class="btn btn-primary btn-lg px-4 me-md-2">Start Coding</a>
+                    <a href="{{ url_for('static', filename='docs/index.html') }}" class="btn btn-outline-secondary btn-lg px-4">Docs</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- <img src="/static/hello-world.png"> -->
-<p><img src="/static/footer.jpg" style='height: 100%; width: 100%; object-fit: contain'></p>
-<div class="index-navigation">
-  <p>
-      <!-- <a href="/docs/RoboCon2019RulebookRev10.pdf"><img src="/static/docs.png"><span>Rules</span></a> -->
-      <a href="/editor/"><img src="/static/editor.png"><span>Editor</span></a>
-      <!-- <a href="/docs/"><img src="/static/rulebook.png"><span>Docs</span></a> -->
-      <!-- <a href="/upload/"><img src="/static/upload.svg"><span>Upload</span></a> -->
-      <a href="/run/"><img src="/static/run.png"><span>Run</span></a>
-  </p>
-</div>
-<p></p>
+    <div class="container px-4 py-5" id="custom-cards">
+        <h2 class="pb-2 border-bottom">Get Started</h2>
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('{{ url_for('static', filename='images/unsplash-editor.jpg') }}');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Editor</h2>
+                        <ul class="d-flex list-unstyled mt-auto">
+                            <li class="me-auto">
+                                <a href="/files" class="btn btn-primary">Go to Editor</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-<p><a href="{{ url_for("about") }}">Copyright notices</a></p>
+            <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('{{ url_for('static', filename='images/unsplash-run.jpg') }}');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Run</h2>
+                        <ul class="d-flex list-unstyled mt-auto">
+                            <li class="me-auto">
+                                <a href="/run" class="btn btn-primary">Go to Run</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('{{ url_for('static', filename='images/unsplash-docs.jpg') }}');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Docs</h2>
+                        <ul class="d-flex list-unstyled mt-auto">
+                            <li class="me-auto">
+                                <a href="{{ url_for('static', filename='docs/index.html') }}" class="btn btn-primary">Go to Docs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

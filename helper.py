@@ -88,10 +88,10 @@ async def wait_for_picture_change():
                 print("Opened successfully")
                 break
             except:
-                print("Error opening file: attempt \#" + str(c))
+                print(("Error opening file: attempt \#" + str(c)))
 
         if c >= (file_open_attempts - 1):
-            print("Cannot open image (failed "+str(c)+" times)")
+            print(("Cannot open image (failed "+str(c)+" times)"))
             continue  # error with this file, go back and wait for next change.
 
         img = shrink_image(img)
@@ -135,7 +135,7 @@ async def wait_for_log_change():
                 print("Opened logs successfully")
                 break
             except:
-                print("Error opening logs: attempt \#" + str(c))
+                print(("Error opening logs: attempt \#" + str(c)))
 
         if c >= 9:
             continue  # error with this file, go back and wait for next change.
@@ -165,7 +165,7 @@ async def register(websocket):  # Runs every time someone connects
             print("Opened successfully")
             break
         except:
-            print("Error opening file: attempt #" + str(c))
+            print(("Error opening file: attempt #" + str(c)))
     bypass = False
     if c > (file_open_attempts - 1):
         bypass = True  # error with this file, go back and wait for next change.

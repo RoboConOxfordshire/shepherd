@@ -39,7 +39,7 @@
                 },
                 "degree(s)"
             ],
-            "template": "move(<%= angle %>)"
+            "template": "turn(<%= angle %>)"
         },
         {
             "id": "turn_to_cube",

@@ -1,0 +1,73 @@
+/* Custom styles for Shepherd */
+
+body {
+    font-family: "Inter UI", sans-serif;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    background-color: #e9ecef; /* Lighter gray for footer */
+    text-align: center;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Flash messages */
+.flash {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.flash--message {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+.flash--error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.flash--success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.flash--debug {
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+}
+
+/* Custom cards */
+.card-cover {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.text-shadow-1 { text-shadow: 0 0 3px rgba(0, 0, 0, .5); }
