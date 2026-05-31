@@ -1,0 +1,18 @@
+site_name: Shepherd
+site_description: RoboCon robot code management system
+site_url: https://hr-robocon.org/docs/
+repo_url: https://github.com/RoboConOxfordshire/shepherd
+docs_dir: wiki
+theme:
+  name: material
+  palette:
+    primary: blue grey
+    accent: orange
+  features:
+    - navigation.instant
+    - navigation.tabs
+nav:
+  - Home: Home.md
+  - Sheep (the basics): Sheep-the-basics.md
+  - Shepherd (the basics): Shepherd-the-basics.md
+  - Tools Required: Tool's-required-for-updating.md

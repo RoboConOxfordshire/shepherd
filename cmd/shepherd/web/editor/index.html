@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shepherd Editor</title>
+<link rel="stylesheet" href="/static/styles/normalize.css">
+<link rel="stylesheet" href="/static/styles/base.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@codemirror/theme-one-dark@6.1.2/dist/index.min.css">
+<style>
+:root {
+  --panel-bg: #f5f5f5;
+  --border: #ddd;
+  --accent: #4a90d9;
+  --accent-hover: #357abd;
+  --danger: #d94a4a;
+  --success: #4a9d4a;
+  --warning: #d9a34a;
+}
+body { margin: 0; display: flex; flex-direction: column; height: 100vh; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+.toolbar { display: flex; align-items: center; gap: 8px; padding: 8px 16px; background: var(--panel-bg); border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.toolbar h1 { margin: 0; font-size: 18px; font-weight: 600; }
+.toolbar .spacer { flex: 1; }
+.toolbar button, .toolbar label { padding: 6px 14px; border: 1px solid var(--border); border-radius: 4px; background: #fff; cursor: pointer; font-size: 13px; }
+.toolbar button:hover { background: #e8e8e8; }
+.toolbar button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.toolbar button.primary:hover { background: var(--accent-hover); }
+.toolbar button.danger { background: var(--danger); color: #fff; border-color: var(--danger); }
+.toolbar select { padding: 6px 10px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px; }
+.main { display: flex; flex: 1; overflow: hidden; }
+.sidebar { width: 220px; background: var(--panel-bg); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
+.sidebar h3 { margin: 0; padding: 12px 16px; font-size: 14px; font-weight: 600; border-bottom: 1px solid var(--border); }
+.file-list { flex: 1; overflow-y: auto; padding: 4px 0; }
+.file-item { padding: 8px 16px; cursor: pointer; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+.file-item:hover { background: #e0e0e0; }
+.file-item.active { background: var(--accent); color: #fff; }
+.file-item .delete-btn { opacity: 0; background: none; border: none; cursor: pointer; color: inherit; font-size: 14px; padding: 0 4px; }
+.file-item:hover .delete-btn { opacity: 0.5; }
+.file-item:hover .delete-btn:hover { opacity: 1; }
+.content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.editor-pane { flex: 1; overflow: hidden; }
+.tabs { display: flex; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.tab { padding: 10px 20px; cursor: pointer; font-size: 13px; border-bottom: 2px solid transparent; }
+.tab.active { border-bottom-color: var(--accent); font-weight: 600; }
+.tab:hover { background: var(--panel-bg); }
+.tab-content { flex: 1; overflow: auto; display: none; }
+.tab-content.active { display: flex; flex-direction: column; }
+.output-frame { flex: 1; border: none; width: 100%; background: #1e1e1e; color: #fff; font-family: monospace; padding: 12px; font-size: 13px; white-space: pre-wrap; overflow-y: auto; }
+.camera-frame { flex: 1; display: flex; align-items: center; justify-content: center; background: #000; }
+.camera-frame img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.status-bar { display: flex; align-items: center; gap: 12px; padding: 6px 16px; background: var(--panel-bg); border-top: 1px solid var(--border); font-size: 12px; flex-shrink: 0; }
+.status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.status-dot.ready { background: var(--success); }
+.status-dot.running { background: var(--warning); }
+.status-dot.finished { background: #999; }
+.new-file-input { border: 1px solid var(--border); border-radius: 4px; padding: 4px 8px; font-size: 13px; width: calc(100% - 32px); margin: 8px 16px; box-sizing: border-box; }
+#toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); padding: 10px 20px; border-radius: 6px; color: #fff; font-size: 14px; z-index: 999; display: none; }
+#toast.show { display: block; }
+#toast.error { background: var(--danger); }
+#toast.success { background: var(--success); }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <h1>Shepherd</h1>
+  <div class="spacer"></div>
+  <select id="zoneSelect">
+    <option value="0">Zone 0</option>
+    <option value="1">Zone 1</option>
+    <option value="2">Zone 2</option>
+    <option value="3">Zone 3</option>
+  </select>
+  <select id="modeSelect">
+    <option value="development">Development</option>
+    <option value="competition">Competition</option>
+  </select>
+  <button class="primary" id="startBtn">Start</button>
+  <button class="danger" id="stopBtn" disabled>Stop</button>
+  <label><input type="file" id="uploadFile" accept=".py,.zip" hidden>Upload</label>
+  <button id="saveBtn">Save</button>
+  <button id="newFileBtn">+ New</button>
+</div>
+
+<div class="main">
+  <div class="sidebar">
+    <h3>Files</h3>
+    <div class="file-list" id="fileList"></div>
+  </div>
+  <div class="content">
+    <div class="tabs">
+      <div class="tab active" data-tab="editor">Editor</div>
+      <div class="tab" data-tab="run">Run</div>
+      <div class="tab" data-tab="output">Output</div>
+    </div>
+    <div class="editor-pane tab-content active" id="tabEditor">
+      <div id="editorContainer" style="height:100%"></div>
+    </div>
+    <div class="tab-content" id="tabRun">
+      <div class="camera-frame" id="cameraFrame">
+        <img id="cameraImg" src="/api/run/picture" alt="Camera">
+      </div>
+    </div>
+    <div class="tab-content" id="tabOutput">
+      <div class="output-frame" id="outputFrame">Waiting for output...</div>
+    </div>
+  </div>
+</div>
+
+<div class="status-bar">
+  <span><span class="status-dot ready" id="statusDot"></span> <span id="statusText">Ready</span></span>
+  <span id="timeLeft"></span>
+  <span id="zoneDisplay"></span>
+  <span id="modeDisplay"></span>
+</div>
+
+<div id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@codemirror/state@6.5.2/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@codemirror/view@6.36.5/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@codemirror/language@6.11.0/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@codemirror/commands@6.8.1/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@codemirror/lang-python@6.1.7/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@codemirror/basic-setup@6.0.0/dist/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@codemirror/theme-one-dark@6.1.2/dist/index.min.js"></script>
+<script>
+let currentFile = null;
+let editor = null;
+let statusState = 'ready';
+
+const $ = id => document.getElementById(id);
+
+function toast(msg, type = 'success') {
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = 'show ' + type;
+  setTimeout(() => t.className = '', 3000);
+}
+
+async function api(method, url, body) {
+  const opts = { method };
+  if (body instanceof FormData) {
+    opts.body = body;
+  } else if (body !== undefined) {
+    opts.headers = { 'Content-Type': 'application/json' };
+    opts.body = JSON.stringify(body);
+  }
+  const r = await fetch(url, opts);
+  if (!r.ok) { const t = await r.text(); throw new Error(t); }
+  return r.headers.get('content-type')?.includes('json') ? r.json() : r.text();
+}
+
+// Editor
+function initEditor() {
+  const parent = $('editorContainer');
+  const startState = CodeMirrorState.EditorState.create({
+    doc: '# Welcome to Shepherd\n',
+    extensions: [
+      CodeMirrorView.basicSetup({ foldGutter: false }),
+      CodeMirrorLangPython.python(),
+      CodeMirrorThemeOneDark.oneDark,
+      CodeMirrorView.EditorView.updateListener.of(update => {
+        if (update.docChanged) {
+          $('saveBtn').style.opacity = '1';
+        }
+      }),
+    ]
+  });
+  editor = new CodeMirrorView.EditorView({ state: startState, parent });
+}
+
+// File browser
+async function loadFiles() {
+  try {
+    const data = await api('GET', '/api/files');
+    const list = $('fileList');
+    list.innerHTML = '';
+    data.projects.forEach(f => {
+      const div = document.createElement('div');
+      div.className = 'file-item' + (currentFile === f.filename ? ' active' : '');
+      div.innerHTML = `<span>${f.filename}</span><button class="delete-btn" data-file="${f.filename}">×</button>`;
+      div.querySelector('span').onclick = () => openFile(f.filename);
+      div.querySelector('.delete-btn').onclick = async (e) => {
+        e.stopPropagation();
+        await api('DELETE', `/api/files/${f.filename}`);
+        if (currentFile === f.filename) currentFile = null;
+        loadFiles();
+      };
+      list.appendChild(div);
+    });
+  } catch (e) { toast('Failed to load files: ' + e.message, 'error'); }
+}
+
+async function openFile(filename) {
+  try {
+    const data = await api('GET', `/api/files/${filename}`);
+    currentFile = filename;
+    editor.dispatch({ changes: { from: 0, to: editor.state.doc.length, insert: data.content } });
+    loadFiles();
+  } catch (e) { toast('Failed to open file: ' + e.message, 'error'); }
+}
+
+$('saveBtn').onclick = async () => {
+  if (!currentFile) return toast('Select a file first', 'error');
+  const content = editor.state.doc.toString();
+  await api('POST', `/api/files/${currentFile}`, content);
+  toast('Saved ' + currentFile);
+};
+
+$('newFileBtn').onclick = () => {
+  const name = prompt('New file name (e.g. motor.py):');
+  if (name && name.endsWith('.py')) {
+    currentFile = name;
+    editor.dispatch({ changes: { from: 0, to: editor.state.doc.length, insert: '# ' + name + '\n' } });
+    api('POST', `/api/files/${name}`, '# ' + name + '\n').then(loadFiles);
+  }
+};
+
+// Upload
+$('uploadFile').onchange = async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const fd = new FormData();
+  fd.append('uploaded_file', file);
+  await api('POST', '/api/upload', fd);
+  toast('Uploaded ' + file.name);
+  loadFiles();
+};
+
+// Run
+async function updateRunStatus() {
+  try {
+    const data = await api('GET', '/api/run/status');
+    statusState = data.state;
+    $('statusText').textContent = data.state.replace('_', ' ');
+    const dot = $('statusDot');
+    dot.className = 'status-dot ' + data.state;
+    $('startBtn').disabled = data.state !== 'ready';
+    $('stopBtn').disabled = data.state !== 'running';
+    if (data.zone) $('zoneDisplay').textContent = 'Zone: ' + data.zone;
+    if (data.mode) $('modeDisplay').textContent = 'Mode: ' + data.mode;
+  } catch (e) {}
+
+  try {
+    const t = await api('GET', '/api/run/time-left');
+    $('timeLeft').textContent = t.time_left ? Math.round(t.time_left / 1000) + 's left' : '';
+  } catch (e) {}
+}
+
+$('startBtn').onclick = async () => {
+  const fd = new FormData();
+  fd.append('zone', $('zoneSelect').value);
+  fd.append('mode', $('modeSelect').value);
+  await api('POST', '/api/run/start', fd);
+  toast('Started!');
+  updateRunStatus();
+};
+
+$('stopBtn').onclick = async () => {
+  await api('POST', '/api/run/stop');
+  toast('Stopped');
+  updateRunStatus();
+};
+
+// Output
+async function refreshOutput() {
+  try {
+    $('outputFrame').textContent = await api('GET', '/api/run/output');
+  } catch (e) {}
+}
+
+// Tabs
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.onclick = () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    $(tab.dataset.tab === 'editor' ? 'tabEditor' : tab.dataset.tab === 'run' ? 'tabRun' : 'tabOutput').classList.add('active');
+    if (tab.dataset.tab === 'output') refreshOutput();
+    if (tab.dataset.tab === 'run') document.querySelector('#cameraImg').src = '/api/run/picture?' + Date.now();
+  };
+});
+
+// WebSocket for camera and logs
+function connectCamera() {
+  const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const ws = new WebSocket(proto + '//' + location.host + '/ws/camera');
+  ws.onmessage = (e) => {
+    if (e.data.startsWith('[CAMERA]')) {
+      document.querySelector('#cameraImg').src = 'data:image/jpeg;base64,' + e.data.slice(8);
+    }
+  };
+  ws.onclose = () => setTimeout(connectCamera, 3000);
+}
+
+function connectLogs() {
+  const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const ws = new WebSocket(proto + '//' + location.host + '/ws/logs');
+  ws.onmessage = (e) => {
+    if (e.data.startsWith('[LOGS]')) {
+      const frame = $('outputFrame');
+      frame.textContent += e.data.slice(6);
+      frame.scrollTop = frame.scrollHeight;
+    }
+  };
+  ws.onclose = () => setTimeout(connectLogs, 3000);
+}
+
+// Init
+initEditor();
+loadFiles();
+updateRunStatus();
+setInterval(updateRunStatus, 2000);
+setInterval(refreshOutput, 5000);
+connectCamera();
+connectLogs();
+</script>
+</body>
+</html>

@@ -1,122 +1,40 @@
-# Byte-compiled / optimized / DLL files
+# Go
+/shepherd
+*.exe
+*.test
+*.out
+
+# Byte-compiled Python
 __pycache__/
 *.py[cod]
-*$py.class
-
-# C extensions
 *.so
 
-# Distribution / packaging
-.Python
-env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# celery beat schedule file
-celerybeat-schedule
-
-# SageMath parsed files
-*.sage.py
-
-# dotenv
+# Virtual environments
 .env
-
-# virtualenv
 .venv
 venv/
 ENV/
 
-# Spyder project settings
-.spyderproject
-.spyproject
+# Node
+node_modules/
 
-# Rope project settings
-.ropeproject
+# Build output
+usercode/
+shepherd/shepherd/static/image.jpg
 
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-
-# sheep node_modules
-sheepsrc/node_modules
-
-manuallybuiltsheep
-manuallybuiltdocs
-
-# pycharm config
+# IDE
 .idea
+.vscode
 
-# fake pi packages
+# Fake Pi packages
 RPi
 smbus
 robot
-usercode
-shepherd/static/image.jpg
-robotsrc
+
+# Old manually built docs
+manuallybuiltsheep
+manuallybuiltdocs
 sheepsrc/.idea
 
-# vscode dev folder
-.vscode
+# MkDocs
+/site
